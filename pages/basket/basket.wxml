@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="hero">
+    <text class="kicker">SHOPPING LIST</text>
+    <text class="title">今天要买的食材</text>
+    <text class="sub" wx:if="{{items.length===0}}">从菜谱选择后生成清单，在这里逐项勾掉已买食材</text>
+    <view class="ring" wx:if="{{items.length>0}}">
+      <text class="ring-num">{{checkedCount}}</text>
+      <text class="ring-label">/ {{items.length}} 项</text>
+    </view>
+  </view>
+
+  <scroll-view class="list" scroll-y wx:if="{{items.length>0}}">
+    <view wx:for="{{recipes}}" wx:key="id" class="recipe-group">
+      <text class="recipe-name">🍽 {{item.name}}</text>
+      <view wx:for="{{item.ingredients}}" wx:for-item="ing" wx:key="*this" class="ing-row {{item.checked && ing.checked?'checked':''}}" data-rid="{{item.id}}" data-iid="{{index}}" bindtap="toggleItem">
+        <view class="ing-check">{{ing.checked ? '✓' : '○'}}</view>
+        <text class="ing-text">{{ing}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="empty" wx:else>
+    <text class="empty-icon">🧺</text>
+    <text class="empty-text">菜篮空空</text>
+    <text class="empty-hint">去菜谱页选几个菜吧</text>
+  </view>
+</view>

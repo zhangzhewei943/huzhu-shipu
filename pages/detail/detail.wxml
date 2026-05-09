@@ -1,0 +1,20 @@
+<view class="page" wx:if="{{recipe}}">
+  <view class="hero" style="background:linear-gradient(180deg,{{recipe.color}}33,var(--cream));">
+    <view class="hero-icon" style="background:{{recipe.color}};">🍽️</view>
+    <view class="hero-name">{{recipe.name}}</view>
+    <view class="hero-time">⏱ {{recipe.time}}</view>
+  </view>
+
+  <view class="section">
+    <view class="sec-label">🥬 食材清单</view>
+    <view wx:for="{{recipe.ingredients}}" wx:key="*this" class="ing-item">{{item}}</view>
+  </view>
+
+  <view class="section">
+    <view class="sec-label">👨‍🍳 制作步骤</view>
+    <view wx:for="{{recipe.steps}}" wx:key="*this" class="step-item">
+      <view class="step-num">{{index+1}}</view>
+      <text class="step-text">{{item}}</text>
+    </view>
+  </view>
+</view>

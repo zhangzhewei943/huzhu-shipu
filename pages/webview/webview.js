@@ -1,0 +1,1 @@
+Page({ data:{url:''}, onLoad(o){ this.setData({url:decodeURIComponent(o.url||'')}); } });

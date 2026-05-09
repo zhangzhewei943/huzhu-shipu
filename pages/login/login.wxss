@@ -1,0 +1,7 @@
+.page{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);padding:40rpx;}
+.card{display:flex;flex-direction:column;align-items:center;width:100%;max-width:600rpx;}
+.logo{font-size:100rpx;margin-bottom:24rpx;}
+.name{font-size:40rpx;font-weight:700;color:var(--fg);margin-bottom:12rpx;}
+.desc{font-size:28rpx;color:var(--muted);margin-bottom:80rpx;}
+.btn{width:100%;height:88rpx;line-height:88rpx;background:var(--accent);color:#fff;font-size:30rpx;font-weight:600;border-radius:12rpx;border:none;padding:0;}
+.hint{margin-top:32rpx;font-size:24rpx;color:var(--muted);}

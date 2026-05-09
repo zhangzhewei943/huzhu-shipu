@@ -1,0 +1,13 @@
+{
+  "description": "我的DIY菜谱",
+  "compileType": "miniprogram",
+  "libVersion": "2.19.4",
+  "appid": "wx9c4b5b11699d1f63",
+  "projectname": "食谱小程序",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  }
+}
