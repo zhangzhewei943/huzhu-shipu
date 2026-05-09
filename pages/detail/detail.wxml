@@ -6,8 +6,13 @@
   </view>
 
   <view class="section">
-    <view class="sec-label">🥬 食材清单</view>
+    <view class="sec-label">🥬 食材</view>
     <view wx:for="{{recipe.ingredients}}" wx:key="*this" class="ing-item">{{item}}</view>
+  </view>
+
+  <view class="section" wx:if="{{recipe.seasonings.length>0}}">
+    <view class="sec-label">🧂 配料</view>
+    <view wx:for="{{recipe.seasonings}}" wx:key="*this" class="ing-item">{{item}}</view>
   </view>
 
   <view class="section">

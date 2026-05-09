@@ -104,15 +104,15 @@ Page({
     const existing = new Map(app.globalData.basketItems.map(i => [i.uid, i]));
     const items = [];
     sel.forEach(recipe => {
-      recipe.ingredients.forEach(ing => {
-        const uid = recipe.id + ':' + ing;
-        items.push({
-          uid,
-          recipeId: recipe.id,
-          recipeName: recipe.name,
-          text: ing,
-          bought: existing.has(uid) ? existing.get(uid).bought : false
-        });
+      (recipe.ingredients || []).forEach(ing => {
+        const uid = recipe.id + ':ing:' + ing;
+        const parts = ing.split(' '); const name = parts[0]; const amount = parts.slice(1).join(' ');
+        items.push({ uid, recipeId: recipe.id, recipeName: recipe.name, name, amount, text: ing, type: 'ingredient', bought: existing.has(uid) ? existing.get(uid).bought : false });
+      });
+      (recipe.seasonings || []).forEach(sea => {
+        const uid = recipe.id + ':sea:' + sea;
+        const parts = sea.split(' '); const name = parts[0]; const amount = parts.slice(1).join(' ');
+        items.push({ uid, recipeId: recipe.id, recipeName: recipe.name, name, amount, text: sea, type: 'seasoning', bought: existing.has(uid) ? existing.get(uid).bought : false });
       });
     });
     app.globalData.basketItems = items;

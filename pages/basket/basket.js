@@ -1,7 +1,7 @@
 const app = getApp();
 
 Page({
-  data: { items: [], boughtCount: 0, pendingCount: 0, recipeCount: 0 },
+  data: { items: [], ingredients: [], seasonings: [], boughtCount: 0, pendingCount: 0, recipeCount: 0 },
 
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) this.getTabBar().setData({ selected: 1 });
@@ -9,11 +9,13 @@ Page({
   },
 
   loadBasket() {
-    const items = app.globalData.basketItems || [];
-    const boughtCount = items.filter(i => i.bought).length;
-    const pendingCount = items.length - boughtCount;
-    const recipeCount = new Set(items.map(i => i.recipeId)).size;
-    this.setData({ items, boughtCount, pendingCount, recipeCount });
+    const all = app.globalData.basketItems || [];
+    const ingredients = all.filter(i => i.type === 'ingredient');
+    const seasonings = all.filter(i => i.type === 'seasoning');
+    const boughtCount = all.filter(i => i.bought).length;
+    const pendingCount = all.length - boughtCount;
+    const recipeCount = new Set(all.map(i => i.recipeId)).size;
+    this.setData({ items: all, ingredients, seasonings, boughtCount, pendingCount, recipeCount });
   },
 
   toggleItem(e) {
@@ -36,7 +38,5 @@ Page({
     this.loadBasket();
   },
 
-  goRecipes() {
-    wx.switchTab({ url: '/pages/recipes/recipes' });
-  }
+  goRecipes() { wx.switchTab({ url: '/pages/recipes/recipes' }); }
 });

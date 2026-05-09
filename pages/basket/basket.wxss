@@ -10,13 +10,14 @@
 .ring-sub{font-size:24rpx;color:var(--muted);}
 
 .list{flex:1;padding:0 24rpx;}
-.ing-row{display:flex;align-items:center;gap:20rpx;padding:20rpx 24rpx;background:var(--surface);border-radius:14rpx;margin-bottom:10rpx;}
+.group-title{font-size:26rpx;font-weight:600;color:var(--muted);padding:16rpx 8rpx 8rpx;}
+
+.ing-row{display:flex;align-items:center;gap:16rpx;padding:20rpx 24rpx;background:var(--surface);border-radius:14rpx;margin-bottom:10rpx;}
 .ing-row.checked{opacity:0.35;}
-.ing-row.checked .ing-text{text-decoration:line-through;}
-.ing-check{font-size:32rpx;color:var(--accent);width:44rpx;text-align:center;}
-.ing-info{flex:1;}
-.ing-text{font-size:28rpx;display:block;}
-.ing-source{font-size:22rpx;color:var(--muted);display:block;margin-top:4rpx;}
+.ing-row.checked .ing-name{text-decoration:line-through;}
+.ing-check{font-size:32rpx;color:var(--accent);width:44rpx;text-align:center;flex-shrink:0;}
+.ing-name{font-size:28rpx;flex:1;}
+.ing-amount{font-size:24rpx;color:var(--muted);text-align:right;margin-left:auto;}
 
 .empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80rpx;}
 .empty-icon{font-size:80rpx;margin-bottom:24rpx;opacity:0.5;}
