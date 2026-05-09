@@ -1,4 +1,4 @@
-.page{display:flex;flex-direction:column;height:100vh;background:var(--cream);}
+.page{display:flex;flex-direction:column;min-height:100vh;background:var(--cream);}
 .header{display:flex;justify-content:space-between;align-items:center;padding:20rpx 32rpx;background:var(--cream);}
 .brand{display:flex;align-items:center;gap:12rpx;}
 .icon{font-size:36rpx;}

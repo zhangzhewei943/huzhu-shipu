@@ -1,4 +1,4 @@
-.page{display:flex;flex-direction:column;height:100vh;background:var(--cream);}
+.page{display:flex;flex-direction:column;min-height:100vh;background:var(--cream);}
 .hero{padding:32rpx 32rpx 24rpx;}
 .kicker{font-size:22rpx;color:var(--accent);letter-spacing:4rpx;}
 .title{font-size:40rpx;font-weight:700;display:block;margin:8rpx 0;}
