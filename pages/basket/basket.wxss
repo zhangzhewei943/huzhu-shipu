@@ -25,5 +25,5 @@
 .empty-btn{padding:16rpx 56rpx;background:var(--accent);color:#fff;font-size:28rpx;border-radius:32rpx;border:none;}
 
 .bottom-bar{display:flex;align-items:center;justify-content:space-between;padding:24rpx 32rpx;padding-bottom:calc(24rpx+env(safe-area-inset-bottom));border-top:1rpx solid var(--border);background:var(--surface);}
-.btn-clear{background:none;color:#E05050;font-size:28rpx;border:none;padding:0;}
 .bar-status{color:var(--accent);font-weight:600;font-size:28rpx;}
+.clear-link{font-size:24rpx;color:var(--muted);margin-top:8rpx;display:inline-block;}

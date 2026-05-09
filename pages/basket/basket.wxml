@@ -9,6 +9,7 @@
         <text class="ring-total">/{{items.length}} 项</text>
       </view>
       <view class="ring-sub">来自 {{recipeCount}} 道菜</view>
+      <text class="clear-link" wx:if="{{items.length>0}}" bindtap="clearBasket">清空全部</text>
     </view>
   </view>
 
@@ -30,7 +31,6 @@
   </view>
 
   <view class="bottom-bar" wx:if="{{items.length>0}}">
-    <button class="btn-clear" bindtap="clearBasket">清空菜篮</button>
     <text class="bar-status">{{pendingCount}} 待买</text>
   </view>
 </view>
