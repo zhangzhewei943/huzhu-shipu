@@ -25,7 +25,8 @@
 /* 主区域 */
 .main{flex:1;padding:16rpx 24rpx;background:var(--cream);}
 .search-bar{display:flex;align-items:center;gap:12rpx;padding:20rpx 24rpx;background:var(--surface);border-radius:16rpx;margin-bottom:20rpx;}
-.search-icon{font-size:28rpx;}.search-text{color:var(--muted);font-size:28rpx;}
+.search-icon{font-size:28rpx;flex-shrink:0;}
+.search-input{flex:1;font-size:28rpx;color:var(--fg);}
 .sec-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16rpx;}
 .sec-title{font-size:32rpx;font-weight:600;}.sec-count{font-size:24rpx;color:var(--accent);}
 

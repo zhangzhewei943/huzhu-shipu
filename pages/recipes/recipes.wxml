@@ -18,8 +18,9 @@
     </scroll-view>
 
     <scroll-view class="main" scroll-y enhanced show-scrollbar="{{false}}">
-      <view class="search-bar" bindtap="onSearch">
-        <text class="search-icon">🔍</text><text class="search-text">搜索菜谱名称</text>
+      <view class="search-bar">
+        <text class="search-icon">🔍</text>
+        <input class="search-input" placeholder="搜索菜谱名称" value="{{keyword}}" bindinput="onSearch" confirm-type="search" />
       </view>
       <view class="sec-head">
         <text class="sec-title">推荐菜谱</text>

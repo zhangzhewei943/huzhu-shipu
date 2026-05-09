@@ -5,6 +5,7 @@ Page({
     categories: ['荤菜','素菜','凉菜','汤羹','主食','甜点','美酒'],
     catKeys: {'荤菜':'meat','素菜':'veg','凉菜':'salad','汤羹':'soup','主食':'rice','甜点':'cake','美酒':'wine'},
     activeCat: '全部',
+    keyword: '',
     recipes: [],
     displayRecipes: [],
     selectedCount: 0
@@ -33,6 +34,10 @@ Page({
     let list = this.data.activeCat === '全部'
       ? [...this.data.recipes]
       : this.data.recipes.filter(r => r.category === this.data.activeCat);
+    const kw = (this.data.keyword || '').trim().toLowerCase();
+    if (kw) {
+      list = list.filter(r => r.name.toLowerCase().includes(kw));
+    }
     list = list.map(r => ({
       ...r,
       selected: !!app.globalData.selectedRecipes.find(s => s.id === r.id)
@@ -114,5 +119,8 @@ Page({
     wx.setStorageSync('basketItems', JSON.stringify(items));
   },
 
-  onSearch() { wx.showToast({ title: '搜索功能 · 原型演示', icon: 'none' }); }
+  onSearch(e) {
+    this.setData({ keyword: e.detail.value });
+    this.updateDisplay();
+  },
 });
