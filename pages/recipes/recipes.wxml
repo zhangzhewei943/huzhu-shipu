@@ -16,7 +16,7 @@
     <scroll-view class="sidebar" scroll-y>
       <view class="cat-item active" data-cat="全部" bindtap="filterCat">全部<text class="badge">{{recipes.length}}</text></view>
       <view wx:for="{{categories}}" wx:key="*this" class="cat-item {{activeCat===item?'active':''}}" data-cat="{{item}}" bindtap="filterCat">
-        <text class="cat-dot {{item}}"></text>{{item}}
+        <view class="cat-dot cat-dot-{{catKeys[item]}}"></view>{{item}}
       </view>
     </scroll-view>
 

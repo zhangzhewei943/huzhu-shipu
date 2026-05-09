@@ -12,8 +12,8 @@
 .cat-item.active{background:var(--cream);color:var(--accent);font-weight:600;}
 .badge{font-size:20rpx;background:var(--accent);color:#fff;border-radius:20rpx;padding:2rpx 12rpx;margin-left:auto;}
 .cat-dot{width:12rpx;height:12rpx;border-radius:50%;}
-.cat-dot.荤菜{background:#E88F8F;}.cat-dot.素菜{background:#6FBF6F;}.cat-dot.凉菜{background:#8FC8E8;}
-.cat-dot.汤羹{background:#B8A8D8;}.cat-dot.主食{background:#E8B44F;}.cat-dot.甜点{background:#E88FC8;}.cat-dot.美酒{background:#C8A88F;}
+.cat-dot-meat{background:#E88F8F;}.cat-dot-veg{background:#6FBF6F;}.cat-dot-salad{background:#8FC8E8;}
+.cat-dot-soup{background:#B8A8D8;}.cat-dot-rice{background:#E8B44F;}.cat-dot-cake{background:#E88FC8;}.cat-dot-wine{background:#C8A88F;}
 
 /* 主区域 */
 .main{flex:1;padding:16rpx 24rpx;background:var(--cream);}

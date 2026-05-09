@@ -2,6 +2,7 @@ const app = getApp();
 Page({
   data: {
     categories: ['荤菜','素菜','凉菜','汤羹','主食','甜点','美酒'],
+    catKeys: {'荤菜':'meat','素菜':'veg','凉菜':'salad','汤羹':'soup','主食':'rice','甜点':'cake','美酒':'wine'},
     activeCat: '全部',
     recipes: [],
     displayRecipes: [],
