@@ -46,7 +46,6 @@ Page({
   },
 
   toggleSelect(e) {
-    e.stopPropagation();
     const id = e.currentTarget.dataset.id;
     const sel = app.globalData.selectedRecipes;
     const idx = sel.findIndex(s => s.id === id);
