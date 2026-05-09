@@ -32,7 +32,7 @@
           <text class="card-time">⏱ {{item.time}}</text>
         </view>
         <view class="card-add {{item.selected?'added':''}}" catchtap="toggleSelect" data-id="{{item.id}}">
-          {{item.selected ? '已加' : '添加'}}
+          {{item.selected ? '去掉' : '添加'}}
         </view>
       </view>
       <view style="height:120rpx;"></view>
@@ -40,7 +40,7 @@
   </view>
 </view>
 
-<view class="float-bar" wx:if="{{selectedCount > 0}}">
-  <text class="float-count">已选 {{selectedCount}}</text>
-  <button class="float-btn" bindtap="goBasket">生成清单</button>
+<view class="fab" wx:if="{{selectedCount > 0}}" bindtap="goBasket">
+  <text class="fab-num">{{selectedCount}}</text>
+  <text class="fab-text">生成清单</text>
 </view>
