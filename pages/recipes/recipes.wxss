@@ -14,6 +14,13 @@
 .cat-dot{width:12rpx;height:12rpx;border-radius:50%;}
 .cat-dot-meat{background:#E88F8F;}.cat-dot-veg{background:#6FBF6F;}.cat-dot-salad{background:#8FC8E8;}
 .cat-dot-soup{background:#B8A8D8;}.cat-dot-rice{background:#E8B44F;}.cat-dot-cake{background:#E88FC8;}.cat-dot-wine{background:#C8A88F;}
+.side-clear{display:flex;align-items:center;gap:8rpx;padding:24rpx 20rpx;font-size:24rpx;color:var(--muted);margin-top:8rpx;}
+.clear-icon{font-size:24rpx;}
+.recipe-card.selected{border-color:var(--accent);background:var(--accent-light);}
+.card-name{font-size:30rpx;font-weight:600;display:block;margin-bottom:6rpx;}
+.card-time{font-size:24rpx;color:var(--muted);display:block;}
+.card-add{padding:10rpx 24rpx;border-radius:24rpx;font-size:24rpx;color:var(--accent);border:2rpx solid var(--accent);white-space:nowrap;}
+.card-add.added{background:var(--accent);color:#fff;}
 
 /* 主区域 */
 .main{flex:1;padding:16rpx 24rpx;background:var(--cream);}

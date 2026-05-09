@@ -1,18 +1,24 @@
 const app = getApp();
 Page({
-  data: { userInfo: null, selectedCount: 0, recipeCount: 0 },
+  data: { selectedCount: 0, recipeCount: 0, basketItems: 0 },
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) this.getTabBar().setData({ selected: 2 });
     this.setData({
-      userInfo: app.globalData.userInfo,
       selectedCount: app.globalData.selectedRecipes.length,
-      recipeCount: app.globalData.recipes.length
+      recipeCount: app.globalData.recipes.length,
+      basketItems: app.globalData.basketItems.length
     });
   },
-  goLogin() { wx.navigateTo({ url: '/pages/login/login' }); },
   clearBasket() {
+    app.globalData.basketItems = [];
+    wx.setStorageSync('basketItems', '[]');
+    this.setData({ basketItems: 0 });
+    wx.showToast({ title: '已清空菜篮', icon: 'none' });
+  },
+  clearSelection() {
     app.globalData.selectedRecipes = [];
+    wx.setStorageSync('selectedRecipes', '[]');
     this.setData({ selectedCount: 0 });
-    wx.showToast({ title: '已清空', icon: 'success' });
+    wx.showToast({ title: '已清空选择', icon: 'none' });
   }
 });

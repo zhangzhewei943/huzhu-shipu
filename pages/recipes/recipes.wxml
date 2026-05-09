@@ -4,49 +4,42 @@
       <view class="icon">🍳</view>
       <text class="title">我的DIY菜谱</text>
     </view>
-    <view class="capsule">
-      <text class="dots">···</text>
-      <text class="divider">|</text>
-      <text class="circle">○</text>
-    </view>
   </view>
 
   <view class="body">
-    <!-- 分类侧边栏 -->
     <scroll-view class="sidebar" scroll-y>
       <view class="cat-item active" data-cat="全部" bindtap="filterCat">全部<text class="badge">{{recipes.length}}</text></view>
       <view wx:for="{{categories}}" wx:key="*this" class="cat-item {{activeCat===item?'active':''}}" data-cat="{{item}}" bindtap="filterCat">
         <view class="cat-dot cat-dot-{{catKeys[item]}}"></view>{{item}}
       </view>
+      <view class="side-clear" bindtap="clearAll">
+        <text class="clear-icon">🗑</text><text>清空选择</text>
+      </view>
     </scroll-view>
 
-    <!-- 主内容 -->
     <scroll-view class="main" scroll-y enhanced show-scrollbar="{{false}}">
       <view class="search-bar" bindtap="onSearch">
-        <text class="search-icon">🔍</text>
-        <text class="search-text">搜索菜谱名称</text>
+        <text class="search-icon">🔍</text><text class="search-text">搜索菜谱名称</text>
       </view>
-
       <view class="sec-head">
         <text class="sec-title">推荐菜谱</text>
         <text class="sec-count">已选 {{selectedCount}}</text>
       </view>
-
-      <view wx:for="{{displayRecipes}}" wx:key="id" class="recipe-card" data-id="{{item.id}}" bindtap="openDetail">
-        <view class="card-photo" style="background:{{item.color}};">🍽️</view>
+      <view wx:for="{{displayRecipes}}" wx:key="id" class="recipe-card {{item.selected?'selected':''}}" data-id="{{item.id}}" bindtap="openDetail">
+        <view class="card-photo" style="background:{{item.color}};">🍽</view>
         <view class="card-info">
           <text class="card-name">{{item.name}}</text>
           <text class="card-time">⏱ {{item.time}}</text>
         </view>
         <view class="card-add {{item.selected?'added':''}}" catchtap="toggleSelect" data-id="{{item.id}}">
-          {{item.selected ? '✓' : '添加'}}
+          {{item.selected ? '已加' : '添加'}}
         </view>
       </view>
+      <view style="height:120rpx;"></view>
     </scroll-view>
   </view>
 </view>
 
-<!-- 底部悬浮按钮 -->
 <view class="float-bar" wx:if="{{selectedCount > 0}}">
   <text class="float-count">已选 {{selectedCount}}</text>
   <button class="float-btn" bindtap="goBasket">生成清单</button>

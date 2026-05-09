@@ -2,19 +2,22 @@
   <view class="hero">
     <text class="kicker">SHOPPING LIST</text>
     <text class="title">今天要买的食材</text>
-    <text class="sub" wx:if="{{items.length===0}}">从菜谱选择后生成清单，在这里逐项勾掉已买食材</text>
-    <view class="ring" wx:if="{{items.length>0}}">
-      <text class="ring-num">{{checkedCount}}</text>
-      <text class="ring-label">/ {{items.length}} 项</text>
+    <text class="sub" wx:if="{{items.length===0}}">从菜谱生成清单后，在这里逐项勾掉已买食材</text>
+    <view class="ring-wrap" wx:if="{{items.length>0}}">
+      <view class="ring">
+        <text class="ring-num">{{boughtCount}}</text>
+        <text class="ring-total">/{{items.length}} 项</text>
+      </view>
+      <view class="ring-sub">来自 {{recipeCount}} 道菜</view>
     </view>
   </view>
 
   <scroll-view class="list" scroll-y wx:if="{{items.length>0}}">
-    <view wx:for="{{recipes}}" wx:key="id" class="recipe-group">
-      <text class="recipe-name">🍽 {{item.name}}</text>
-      <view wx:for="{{item.ingredients}}" wx:for-item="ing" wx:key="*this" class="ing-row {{item.checked && ing.checked?'checked':''}}" data-rid="{{item.id}}" data-iid="{{index}}" bindtap="toggleItem">
-        <view class="ing-check">{{ing.checked ? '✓' : '○'}}</view>
-        <text class="ing-text">{{ing}}</text>
+    <view wx:for="{{items}}" wx:key="uid" class="ing-row {{item.bought?'checked':''}}" data-uid="{{item.uid}}" bindtap="toggleItem">
+      <view class="ing-check">{{item.bought ? '✓' : '○'}}</view>
+      <view class="ing-info">
+        <text class="ing-text">{{item.text}}</text>
+        <text class="ing-source">来自 {{item.recipeName}}</text>
       </view>
     </view>
   </scroll-view>
@@ -22,6 +25,12 @@
   <view class="empty" wx:else>
     <text class="empty-icon">🧺</text>
     <text class="empty-text">菜篮空空</text>
-    <text class="empty-hint">去菜谱页选几个菜吧</text>
+    <text class="empty-hint">去菜谱页选几个菜，点"生成清单"即可</text>
+    <button class="empty-btn" bindtap="goRecipes">去添加菜谱</button>
+  </view>
+
+  <view class="bottom-bar" wx:if="{{items.length>0}}">
+    <button class="btn-clear" bindtap="clearBasket">清空菜篮</button>
+    <text class="bar-status">{{pendingCount}} 待买</text>
   </view>
 </view>
